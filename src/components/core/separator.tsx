@@ -34,7 +34,7 @@ Separator.displayName = SeparatorPrimitive.Root.displayName;
 
 export { Separator };
 
-const SeparatorStyles = cva("ghp-separator shrink-0 bg-neutral-800", {
+const SeparatorStyles = cva(["ghp-separator", "shrink-0", "bg-neutral-800"], {
   variants: {
     orientation: {
       horizontal: "w-full h-px",

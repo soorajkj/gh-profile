@@ -3,10 +3,9 @@
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
   "css.validate": false,
+  "scss.validate": false,
+  "editor.colorDecorators": false,
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
-  ],
-  "[svg]": {
-    "editor.defaultFormatter": "jock.svg"
-  }
+  ]
 }

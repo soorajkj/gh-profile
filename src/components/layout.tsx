@@ -17,7 +17,7 @@ export default function Layout(props: LayoutProps) {
   const { className } = props;
 
   return (
-    <div className={mergeNames(LayoutStyles, className)}>
+    <div className={mergeNames(LayoutStyles({ className }))}>
       <Header />
       <Separator />
       <main className="ghp-main flex-1 overflow-y-auto">
