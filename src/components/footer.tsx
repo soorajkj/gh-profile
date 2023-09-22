@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="ghp-footer">
       <Wrapper>
-        <div>Footer</div>
+        <div className="py-2">Footer</div>
       </Wrapper>
     </footer>
   );

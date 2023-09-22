@@ -20,7 +20,7 @@ export default function Layout(props: LayoutProps) {
     <div className={mergeNames(LayoutStyles({ className }))}>
       <Header />
       <Separator />
-      <main className="ghp-main flex-1 overflow-y-auto">
+      <main className="ghp-main flex-1 overflow-y-auto scrollbar-none">
         <Outlet />
       </main>
       <Separator />
@@ -32,8 +32,7 @@ export default function Layout(props: LayoutProps) {
 const LayoutStyles = cva([
   "ghp-layout",
   "flex",
-  "h-full",
-  "min-h-screen",
+  "h-screen",
   "w-screen",
   "flex-col",
   "overflow-hidden",

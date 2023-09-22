@@ -3,11 +3,45 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --gray-0: 246, 248, 250;
+    --gray-1: 234, 238, 242;
+    --gray-2: 208, 215, 222;
+    --gray-3: 175, 184, 193;
+    --gray-4: 140, 149, 159;
+    --gray-5: 110, 119, 129;
+    --gray-6: 87, 96, 106;
+    --gray-7: 66, 74, 83;
+    --gray-8: 50, 56, 63;
+    --gray-9: 36, 41, 47;
+    --blue-0: 221, 244, 255;
+    --blue-1: 182, 227, 255;
+    --blue-2: 128, 204, 255;
+    --blue-3: 84, 174, 255;
+    --blue-4: 33, 139, 255;
+    --blue-5: 9, 105, 218;
+    --blue-6: 5, 80, 174;
+    --blue-7: 3, 61, 139;
+    --blue-8: 10, 48, 105;
+    --blue-9: 0, 33, 85;
+    --green-0: 218, 251, 225;
+    --green-1: 172, 238, 187;
+    --green-2: 111, 221, 139;
+    --green-3: 74, 194, 107;
+    --green-4: 45, 164, 78;
+    --green-5: 26, 127, 55;
+    --green-6: 17, 99, 41;
+    --green-7: 4, 79, 30;
+    --green-8: 0, 61, 22;
+    --green-9: 0, 45, 17;
+  }
+
   html {
     @apply scroll-smooth;
   }
 
   body {
-    @apply bg-neutral-900 font-sans text-sm font-normal leading-normal text-neutral-400 antialiased;
+    @apply bg-zinc-950 font-sans text-sm font-normal leading-normal text-neutral-400 antialiased;
+    font-family: "Inter", Arial, Helvetica, Roboto, sans-serif;
   }
 }

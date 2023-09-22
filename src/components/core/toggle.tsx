@@ -11,7 +11,7 @@ const Toggle = React.forwardRef<
   return (
     <TogglePrimitive.Root
       ref={ref}
-      className={mergeNames({ className })}
+      className={mergeNames(["select-none"], className)}
       {...rest}
     />
   );
