@@ -10,7 +10,7 @@ export default function Header() {
     <header className="ghp-header">
       <Wrapper>
         <div className="flex items-center justify-between py-2">
-          <Link to="/" className="inline-flex items-center justify-center">
+          <Link to="/" className="flex select-none items-center outline-none">
             <span className="sr-only">github.pro</span>
             <Icon icon="ghpro" className="h-10 w-10" />
           </Link>
