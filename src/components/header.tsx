@@ -11,8 +11,7 @@ export default function Header() {
       <Wrapper>
         <div className="flex items-center justify-between py-2">
           <Link to="/" className="flex select-none items-center outline-none">
-            <span className="sr-only">github.pro</span>
-            <Icon icon="ghpro" className="h-10 w-10" />
+            <Icon icon="ghpro" label="github.pro" className="h-10 w-10" />
           </Link>
           <Dropdown.DropdownRoot>
             <Dropdown.DropdownTrigger asChild>
