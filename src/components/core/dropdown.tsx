@@ -41,7 +41,7 @@ const DropdownLabel = React.forwardRef<
     <DropdownPrimitive.Label
       ref={ref}
       className={mergeNames(
-        ["px-4", "py-2", "text-sm"],
+        ["py-1", "pr-2", "text-color-gray-100"],
         inset && "pl-8",
         className
       )}
@@ -111,7 +111,7 @@ const DropdownRadioItem = React.forwardRef<
     >
       <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
         <DropdownPrimitive.ItemIndicator>
-          <Icon icon="settings" className="h-2 w-2 fill-current" />
+          <Icon icon="settings" className="h-2 w-2 fill-color-current" />
         </DropdownPrimitive.ItemIndicator>
       </span>
       {children}
@@ -121,17 +121,15 @@ const DropdownRadioItem = React.forwardRef<
 
 const DropdownSeparator = React.forwardRef<
   React.ElementRef<typeof DropdownPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof DropdownPrimitive.Separator>
+  React.ComponentPropsWithoutRef<typeof DropdownPrimitive.Separator> &
+    VariantProps<typeof DropdownSeparatorStyles>
 >((props, ref) => {
   const { className, ...rest } = props;
 
   return (
     <DropdownPrimitive.Separator
       ref={ref}
-      className={mergeNames(
-        ["bg-neutral-900", "-mx-1", "my-1", "h-px"],
-        className
-      )}
+      className={mergeNames(DropdownSeparatorStyles({ className }))}
       {...rest}
     />
   );
@@ -179,15 +177,15 @@ const DropdownSubContent = React.forwardRef<
   );
 });
 
-const DropdownShortcut = (props: React.HTMLAttributes<HTMLSpanElement>) => {
+const DropdownShortcut = (
+  props: React.HTMLAttributes<HTMLSpanElement> &
+    VariantProps<typeof DropdownShortcutStyles>
+) => {
   const { className, ...rest } = props;
 
   return (
     <span
-      className={mergeNames(
-        ["ml-auto", "text-xs", "tracking-widest", "opacity-60"],
-        className
-      )}
+      className={mergeNames(DropdownShortcutStyles({ className }))}
       {...rest}
     />
   );
@@ -222,14 +220,17 @@ export {
 };
 
 const DropdownContentStyles = cva([
-  "bg-neutral-900/50",
-  "text-color-secondary",
+  "ghp-dropdown__content",
+  "bg-color-gray-800",
+  "text-color-gray-300",
   "z-50",
   "min-w-[8rem]",
   "overflow-hidden",
   "rounded-md",
+  "px-2",
+  "py-1",
   "border",
-  "border-neutral-800/50",
+  "border-color-gray-600",
   "shadow-md",
   "data-[state=open]:animate-in",
   "data-[state=closed]:animate-out",
@@ -244,17 +245,17 @@ const DropdownContentStyles = cva([
 ]);
 
 const DropdownItemStyles = cva([
-  "focus:bg-accent",
-  "focus:text-accent-foreground",
+  "ghp-dropdown__item",
+  "focus:text-color-gray-200",
+  "focus:bg-color-gray-700/80",
   "relative",
   "flex",
   "cursor-pointer",
   "select-none",
   "items-center",
-  "rounded-sm",
-  "px-4",
-  "py-2.5",
-  "text-sm",
+  "rounded-md",
+  "px-2",
+  "py-1.5",
   "font-normal",
   "outline-none",
   "transition-colors",
@@ -263,6 +264,7 @@ const DropdownItemStyles = cva([
 ]);
 
 const DropdownCheckboxItemStyles = cva([
+  "ghp-dropdown__checkbox-item",
   "focus:bg-accent",
   "focus:text-accent-foreground",
   "relative",
@@ -282,6 +284,7 @@ const DropdownCheckboxItemStyles = cva([
 ]);
 
 const DropdownRadioItemStyles = cva([
+  "ghp-dropdown__radio-item",
   "focus:bg-accent",
   "focus:text-accent-foreground",
   "relative",
@@ -300,7 +303,17 @@ const DropdownRadioItemStyles = cva([
   "data-[disabled]:opacity-50",
 ]);
 
+const DropdownSeparatorStyles = cva([
+  "ghp-dropdown__separator",
+  "bg-color-gray-600",
+  "-mx-2",
+  "my-1",
+  "border-b",
+  "border-b-color-gray-600",
+]);
+
 const DropdownSubTriggerStyles = cva([
+  "ghp-dropdown__sub-trigger",
   "focus:bg-accent",
   "data-[state=open]:bg-accent",
   "flex",
@@ -315,6 +328,7 @@ const DropdownSubTriggerStyles = cva([
 ]);
 
 const DropdownSubContentStyles = cva([
+  "ghp-dropdown__sub-content",
   "bg-popover",
   "text-popover-foreground",
   "z-50",
@@ -334,4 +348,12 @@ const DropdownSubContentStyles = cva([
   "data-[side=left]:slide-in-from-right-2",
   "data-[side=right]:slide-in-from-left-2",
   "data-[side=top]:slide-in-from-bottom-2",
+]);
+
+const DropdownShortcutStyles = cva([
+  "ghp-dropdown__shortcut",
+  "ml-auto",
+  "text-xs",
+  "tracking-widest",
+  "opacity-60",
 ]);

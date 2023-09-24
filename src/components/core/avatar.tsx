@@ -19,22 +19,6 @@ const AvatarRoot = React.forwardRef<
   );
 });
 
-const AvatarImage = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Image>,
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> &
-    VariantProps<typeof AvatarImageStyles>
->((props, ref) => {
-  const { className, ...rest } = props;
-
-  return (
-    <AvatarPrimitive.Image
-      ref={ref}
-      className={mergeNames(AvatarImageStyles({ className }))}
-      {...rest}
-    />
-  );
-});
-
 const AvatarFallback = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Fallback>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback> &
@@ -51,11 +35,27 @@ const AvatarFallback = React.forwardRef<
   );
 });
 
-AvatarRoot.displayName = AvatarPrimitive.Root.displayName;
-AvatarImage.displayName = AvatarPrimitive.Image.displayName;
-AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
+const AvatarImage = React.forwardRef<
+  React.ElementRef<typeof AvatarPrimitive.Image>,
+  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> &
+    VariantProps<typeof AvatarImageStyles>
+>((props, ref) => {
+  const { className, ...rest } = props;
 
-export { AvatarRoot, AvatarImage, AvatarFallback };
+  return (
+    <AvatarPrimitive.Image
+      ref={ref}
+      className={mergeNames(AvatarImageStyles({ className }))}
+      {...rest}
+    />
+  );
+});
+
+AvatarRoot.displayName = AvatarPrimitive.Root.displayName;
+AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
+AvatarImage.displayName = AvatarPrimitive.Image.displayName;
+
+export { AvatarRoot, AvatarFallback, AvatarImage };
 
 const AvatarRootStyles = cva([
   "relative",
@@ -67,19 +67,20 @@ const AvatarRootStyles = cva([
   "rounded-full",
 ]);
 
-const AvatarImageStyles = cva([
-  "pointer-events-none",
-  "aspect-square",
-  "h-full",
-  "w-full",
-]);
-
 const AvatarFallbackStyles = cva([
-  "bg-neutral-800",
+  "bg-color-gray-700",
+  "text-color-gray-200",
   "flex",
   "h-full",
   "w-full",
   "items-center",
   "justify-center",
   "rounded-full",
+]);
+
+const AvatarImageStyles = cva([
+  "pointer-events-none",
+  "aspect-square",
+  "h-full",
+  "w-full",
 ]);
