@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import { GitHubUser } from "@/types/github";
+import { Button } from "@/components/core/button";
+import { Input } from "@/components/core/input";
 import Wrapper from "@/components/core/wrapper";
 
 const GITHUB_URL = import.meta.env.VITE_GITHUB_URL;
@@ -33,14 +35,16 @@ export default function Dashboard() {
   return (
     <div className="ghp-dashboard">
       <Wrapper>
-        <div>Dashboard</div>
-        <form onSubmit={(e) => handleSubmit(e)}>
-          <input
+        <form onSubmit={(e) => handleSubmit(e)} className="my-4 flex space-x-2">
+          <Input
             type="text"
             value={searchUser}
             onChange={(e) => setSearchUser(e.target.value)}
-          />
-          <button type="submit">Search</button>
+            placeholder="Search users..."
+          ></Input>
+          <Button type="submit" variant="primary">
+            Search
+          </Button>
         </form>
       </Wrapper>
     </div>

@@ -1,28 +1,32 @@
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import { cva, VariantProps } from "class-variance-authority";
-import { icons } from "@/constants/icons";
 import { mergeNames } from "@/lib/utils";
-import { IconProps } from "@/components/core/icon";
 
 interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof ButtonStyles> {
   asChild?: boolean;
-  icon?: keyof typeof icons;
-  iconProps?: Omit<IconProps, "icon">;
+  fluid?: boolean;
+  iconOnly?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (props, ref) => {
-    const { children, asChild, variant, className, ...rest } = props;
+    const { children, asChild, variant, fluid, iconOnly, className, ...rest } =
+      props;
 
     const Element = !asChild ? "button" : Slot;
 
     return (
       <Element
         ref={ref}
-        className={mergeNames(ButtonStyles({ variant, className }))}
+        className={mergeNames(
+          ButtonStyles({ variant }),
+          fluid && "w-full",
+          iconOnly && "px-2",
+          className
+        )}
         {...rest}
       >
         {children}
@@ -94,6 +98,9 @@ const ButtonStyles = cva(
           "hover:text-color-blue-400",
         ],
       },
+    },
+    defaultVariants: {
+      variant: "default",
     },
   }
 );
