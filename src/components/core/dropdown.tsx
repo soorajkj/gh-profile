@@ -41,7 +41,7 @@ const DropdownLabel = React.forwardRef<
     <DropdownPrimitive.Label
       ref={ref}
       className={mergeNames(
-        ["py-1", "pr-2", "text-color-gray-100"],
+        ["py-2", "px-2", "pr-4", "text-color-gray-100"],
         inset && "pl-8",
         className
       )}
@@ -84,12 +84,12 @@ const DropdownCheckboxItem = React.forwardRef<
       checked={checked}
       {...rest}
     >
-      <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+      <span className="flex h-3.5 w-3.5 items-center justify-center">
         <DropdownPrimitive.ItemIndicator>
-          <Icon icon="settings" className="h-4 w-4" />
+          <Icon icon="check" className="h-3 w-3 text-color-gray-400" />
         </DropdownPrimitive.ItemIndicator>
       </span>
-      {children}
+      <span>{children}</span>
     </DropdownPrimitive.CheckboxItem>
   );
 });
@@ -109,12 +109,12 @@ const DropdownRadioItem = React.forwardRef<
       className={mergeNames(DropdownRadioItemStyles({ className }))}
       {...rest}
     >
-      <span className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+      <span className="flex h-3.5 w-3.5 items-center justify-center">
         <DropdownPrimitive.ItemIndicator>
-          <Icon icon="settings" className="h-2 w-2 fill-color-current" />
+          <Icon icon="dot" className="h-3 w-3 text-color-gray-400" />
         </DropdownPrimitive.ItemIndicator>
       </span>
-      {children}
+      <span>{children}</span>
     </DropdownPrimitive.RadioItem>
   );
 });
@@ -156,7 +156,10 @@ const DropdownSubTrigger = React.forwardRef<
       {...rest}
     >
       {children}
-      <Icon icon="settings" className="ml-auto h-4 w-4" />
+      <Icon
+        icon="chevronr"
+        className="ml-auto h-3.5 w-3.5 text-color-gray-400"
+      />
     </DropdownPrimitive.SubTrigger>
   );
 });
@@ -227,8 +230,7 @@ const DropdownContentStyles = cva([
   "min-w-[8rem]",
   "overflow-hidden",
   "rounded-md",
-  "px-2",
-  "py-1",
+  "py-0",
   "border",
   "border-color-gray-600",
   "shadow-md",
@@ -246,16 +248,16 @@ const DropdownContentStyles = cva([
 
 const DropdownItemStyles = cva([
   "ghp-dropdown__item",
-  "focus:text-color-gray-200",
   "focus:bg-color-gray-700/80",
+  "focus:text-color-gray-200",
   "relative",
   "flex",
   "cursor-pointer",
   "select-none",
   "items-center",
-  "rounded-md",
-  "px-2",
-  "py-1.5",
+  "rounded-none",
+  "px-4",
+  "py-2",
   "font-normal",
   "outline-none",
   "transition-colors",
@@ -265,17 +267,16 @@ const DropdownItemStyles = cva([
 
 const DropdownCheckboxItemStyles = cva([
   "ghp-dropdown__checkbox-item",
-  "focus:bg-accent",
-  "focus:text-accent-foreground",
+  "focus:bg-color-gray-700/80",
+  "focus:text-color-gray-200",
   "relative",
   "flex",
-  "cursor-default",
+  "cursor-pointer",
   "select-none",
   "items-center",
   "rounded-sm",
-  "py-1.5",
-  "pl-8",
-  "pr-2",
+  "py-2",
+  "px-4",
   "text-sm",
   "outline-none",
   "transition-colors",
@@ -285,17 +286,17 @@ const DropdownCheckboxItemStyles = cva([
 
 const DropdownRadioItemStyles = cva([
   "ghp-dropdown__radio-item",
-  "focus:bg-accent",
-  "focus:text-accent-foreground",
+  "focus:bg-color-gray-700/80",
+  "focus:text-color-gray-200",
   "relative",
   "flex",
-  "cursor-default",
+  "cursor-pointer",
   "select-none",
   "items-center",
   "rounded-sm",
-  "py-1.5",
-  "pl-8",
-  "pr-2",
+  "py-2",
+  "px-4",
+  "!space-x-3",
   "text-sm",
   "outline-none",
   "transition-colors",
@@ -314,30 +315,30 @@ const DropdownSeparatorStyles = cva([
 
 const DropdownSubTriggerStyles = cva([
   "ghp-dropdown__sub-trigger",
-  "focus:bg-accent",
-  "data-[state=open]:bg-accent",
+  "focus:bg-color-gray-700/80",
+  "focus:text-color-gray-200",
+  "data-[state=open]:bg-color-gray-700/80",
+  "data-[state=open]:text-color-gray-200",
   "flex",
-  "cursor-default",
+  "cursor-pointer",
   "select-none",
   "items-center",
-  "rounded-sm",
-  "px-2",
-  "py-1.5",
+  "px-4",
+  "py-2",
   "text-sm",
   "outline-none",
 ]);
 
 const DropdownSubContentStyles = cva([
   "ghp-dropdown__sub-content",
-  "bg-popover",
-  "text-popover-foreground",
+  "bg-color-gray-800",
   "z-50",
   "min-w-[8rem]",
   "overflow-hidden",
   "rounded-md",
   "border",
-  "p-1",
-  "shadow-lg",
+  "border-color-gray-600",
+  "shadow-md",
   "data-[state=open]:animate-in",
   "data-[state=closed]:animate-out",
   "data-[state=closed]:fade-out-0",

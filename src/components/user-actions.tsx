@@ -25,8 +25,8 @@ export default function UserActions() {
           </Avatar.AvatarRoot>
         </Toggle>
       </Dropdown.DropdownTrigger>
-      <Dropdown.DropdownContent align="end" sideOffset={16}>
-        <Dropdown.DropdownLabel className="flex items-center space-x-3">
+      <Dropdown.DropdownContent align="end" sideOffset={24}>
+        <Dropdown.DropdownLabel className="flex items-center space-x-2.5">
           <Avatar.AvatarRoot>
             <Avatar.AvatarImage
               src={user?.user_metadata.avatar_url}
@@ -46,20 +46,56 @@ export default function UserActions() {
         <Dropdown.DropdownSeparator />
         <Dropdown.DropdownGroup>
           <Dropdown.DropdownItem asChild>
-            <Link to="account" className="flex items-center space-x-2">
+            <Link to="account" className="flex items-center space-x-2.5">
               <Icon icon="account" className="h-3.5 w-3.5" />
-              <span>Your profile</span>
+              <span>Your Profile</span>
             </Link>
           </Dropdown.DropdownItem>
           <Dropdown.DropdownItem asChild>
-            <Link to="account" className="flex items-center space-x-2">
+            <Link to="account" className="flex items-center space-x-2.5">
+              <Icon icon="repo" className="h-3.5 w-3.5" />
+              <span>Your Repositories</span>
+            </Link>
+          </Dropdown.DropdownItem>
+          <Dropdown.DropdownItem asChild>
+            <div className="flex items-center space-x-2.5">
+              <Icon icon="pulse" className="h-3.5 w-3.5" />
+              <span>Your Activity</span>
+            </div>
+          </Dropdown.DropdownItem>
+          <Dropdown.DropdownItem asChild>
+            <Link to="account" className="flex items-center space-x-2.5">
               <Icon icon="settings" className="h-3.5 w-3.5" />
               <span>Settings</span>
             </Link>
           </Dropdown.DropdownItem>
           <Dropdown.DropdownSeparator />
+          <Dropdown.DropdownSub>
+            <Dropdown.DropdownSubTrigger>
+              <div className="flex items-center space-x-2.5">
+                <Icon icon="brush" className="h-3.5 w-3.5" />
+                <span>Appreance</span>
+              </div>
+            </Dropdown.DropdownSubTrigger>
+            <Dropdown.DropdownPortal>
+              <Dropdown.DropdownSubContent>
+                <Dropdown.DropdownRadioGroup value={"system"}>
+                  <Dropdown.DropdownRadioItem value="system">
+                    System
+                  </Dropdown.DropdownRadioItem>
+                  <Dropdown.DropdownRadioItem value="light">
+                    Light
+                  </Dropdown.DropdownRadioItem>
+                  <Dropdown.DropdownRadioItem value="dark">
+                    Dark
+                  </Dropdown.DropdownRadioItem>
+                </Dropdown.DropdownRadioGroup>
+              </Dropdown.DropdownSubContent>
+            </Dropdown.DropdownPortal>
+          </Dropdown.DropdownSub>
+          <Dropdown.DropdownSeparator />
           <Dropdown.DropdownItem asChild onClick={() => dispatch(logout())}>
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2.5">
               <Icon icon="logout" className="h-3.5 w-3.5" />
               <span>Logout</span>
             </div>
