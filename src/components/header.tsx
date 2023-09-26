@@ -10,11 +10,7 @@ export default function Header() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const query = userName.trim();
-    if (query.length) {
-      // eslint-disable-next-line no-console
-      console.log(query);
-    }
+    const _query = userName.trim();
   };
 
   return (
@@ -27,13 +23,16 @@ export default function Header() {
           </Link>
           <div className="flex items-center space-x-8">
             <form onSubmit={handleSubmit} className="flex items-center">
+              <button type="submit" className="-mr-7 hidden md:inline-block">
+                <Icon icon="search" className="h-4 w-4 text-color-gray-600" />
+              </button>
               <Input
                 type="text"
                 placeholder="Type to search"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
+                className="pl-10"
               ></Input>
-              <button type="submit" className="hidden md:inline-block"></button>
             </form>
             <UserActions />
           </div>
