@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@/components/core/icon";
 import Wrapper from "@/components/core/wrapper";
-import UserActions from "@/components/user-actions";
+import UserMenu from "./user-menu";
 
 export default function Header() {
   return (
@@ -12,7 +12,7 @@ export default function Header() {
             <Icon icon="github" className="h-10 w-10" />
             <span className="sr-only">Github pro</span>
           </Link>
-          <UserActions />
+          <UserMenu />
         </div>
       </Wrapper>
     </header>

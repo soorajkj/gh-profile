@@ -1,8 +1,18 @@
-import type { AuthError, Session, SupabaseClient } from "@supabase/supabase-js";
+import { User } from "@supabase/supabase-js";
 
-export interface AuthState {
-  session: Session | null;
-  loading: boolean;
-  error: AuthError | null;
-  supabaseClient: SupabaseClient;
+export interface ExtendedUserMetadata {
+  avatar_url: string;
+  email: string;
+  email_verified: boolean;
+  full_name: string;
+  iss: string;
+  name: string;
+  picture: string;
+  provider_id: string;
+  sub: string;
+  user_name: string;
+}
+
+export interface SupaUser extends User {
+  user_metadata: ExtendedUserMetadata;
 }

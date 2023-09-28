@@ -6,7 +6,7 @@ import Login from "@/pages/login";
 import Layout from "@/components/layout";
 
 export default function App() {
-  const _subscription = useSubscription();
+  const _supscription = useSubscription();
 
   return (
     <Routes>

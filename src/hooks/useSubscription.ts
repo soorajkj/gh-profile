@@ -1,24 +1,26 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { SupaUser } from "@/types/auth";
 import { supabase } from "@/lib/supabase";
 import { useAppDispatch } from "@/redux/store";
-import { setUser, SupaUser } from "@/redux/auth.slice";
+import { setUser } from "@/redux/auth.slice";
 
 export default function useSubscription() {
-  const history = useNavigate();
   const dispatch = useAppDispatch();
+  const redirect = useNavigate();
 
   useEffect(() => {
-    const subscribe = supabase.auth.onAuthStateChange(async (_e, session) => {
-      dispatch(setUser((session?.user as SupaUser) ?? null));
-
-      if (!session?.user) history("login");
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange(async (_e, session) => {
+      if (session) {
+        dispatch(setUser(session.user as SupaUser));
+      } else {
+        dispatch(setUser(null));
+        redirect("login", { replace: true });
+      }
     });
 
-    return () => {
-      if (subscribe.data && subscribe.data.subscription) {
-        subscribe.data.subscription.unsubscribe();
-      }
-    };
-  }, [dispatch, history]);
+    return () => subscription.unsubscribe();
+  }, [dispatch, redirect]);
 }
