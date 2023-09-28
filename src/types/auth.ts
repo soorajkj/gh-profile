@@ -10,6 +10,7 @@ export interface ExtendedUserMetadata {
   picture: string;
   provider_id: string;
   sub: string;
+  user_name: string;
 }
 
 export interface SupaUser extends User {

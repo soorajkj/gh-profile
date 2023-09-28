@@ -1,23 +1,35 @@
+import { ReactComponent as Account } from "@/assets/icons/account.svg";
+import { ReactComponent as Brush } from "@/assets/icons/brush.svg";
 import { ReactComponent as Check } from "@/assets/icons/check.svg";
-import { ReactComponent as ChevronRight } from "@/assets/icons/chevron-right.svg";
-import { ReactComponent as Circle } from "@/assets/icons/circle.svg";
-import { ReactComponent as Close } from "@/assets/icons/close.svg";
+import { ReactComponent as Chevronr } from "@/assets/icons/chevron-right.svg";
+import { ReactComponent as Dot } from "@/assets/icons/dot.svg";
+import { ReactComponent as github } from "@/assets/icons/github.svg";
+import { ReactComponent as Location } from "@/assets/icons/location.svg";
 import { ReactComponent as Logout } from "@/assets/icons/logout.svg";
-import { ReactComponent as Menu } from "@/assets/icons/menu.svg";
+import { ReactComponent as Mail } from "@/assets/icons/mail.svg";
+import { ReactComponent as Organization } from "@/assets/icons/organization.svg";
+import { ReactComponent as Peoples } from "@/assets/icons/peoples.svg";
+import { ReactComponent as Pulse } from "@/assets/icons/pulse.svg";
+import { ReactComponent as Repo } from "@/assets/icons/repo.svg";
+import { ReactComponent as Search } from "@/assets/icons/search.svg";
 import { ReactComponent as Settings } from "@/assets/icons/settings.svg";
-import { ReactComponent as Unnamed } from "@/assets/icons/unnamed.svg";
-import { ReactComponent as User } from "@/assets/icons/user.svg";
-import { ReactComponent as Verified } from "@/assets/icons/verified.svg";
+import { ReactComponent as Twitter } from "@/assets/icons/twitter.svg";
 
 export const icons = {
+  account: Account,
+  brush: Brush,
   check: Check,
-  chevronRight: ChevronRight,
-  circle: Circle,
-  close: Close,
+  chevronr: Chevronr,
+  dot: Dot,
+  github: github,
+  location: Location,
   logout: Logout,
-  menu: Menu,
+  mail: Mail,
+  organization: Organization,
+  peoples: Peoples,
+  pulse: Pulse,
+  repo: Repo,
+  search: Search,
   settings: Settings,
-  user: User,
-  verified: Verified,
-  unnamed: Unnamed,
+  twitter: Twitter,
 };

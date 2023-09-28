@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-color-gray-900
+    font-family-inter
+    text-sm
+    font-normal
+    leading-normal
+    text-color-gray-400
+    antialiased;
+  }
+}
