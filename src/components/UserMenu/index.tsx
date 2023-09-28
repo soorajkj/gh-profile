@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "@/redux/store";
 import { logout } from "@/redux/auth.slice";
-import * as Avatar from "@/components/core/avatar";
-import * as Dropdown from "@/components/core/dropdown";
-import { Icon } from "@/components/core/icon";
-import { Toggle } from "@/components/core/toggle";
+import * as Avatar from "@/components/core/Avatar";
+import * as Dropdown from "@/components/core/Dropdown";
+import { Icon } from "@/components/core/Icon";
+import { Toggle } from "@/components/core/Toggle";
 
 export default function UserMenu() {
   const dispatch = useAppDispatch();

@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import useSubscription from "@/hooks/useSubscription";
-import Account from "@/pages/account";
-import Dashboard from "@/pages/dashboard";
-import Login from "@/pages/login";
-import Layout from "@/components/layout";
+import Account from "@/pages/Account";
+import Dashboard from "@/pages/Dashboard";
+import Login from "@/pages/Login";
+import Layout from "@/components/Layout";
 
 export default function App() {
   const _supscription = useSubscription();

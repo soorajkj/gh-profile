@@ -2,9 +2,13 @@ import * as RTK from "@reduxjs/toolkit";
 import { TypedUseSelectorHook, useDispatch, useSelector } from "react-redux";
 import thunkMiddleware, { ThunkDispatch, ThunkMiddleware } from "redux-thunk";
 import authReducer from "@/redux/auth.slice";
+import githubReducer from "@/redux/github.slice";
 
 export const store = RTK.configureStore({
-  reducer: { auth: authReducer },
+  reducer: {
+    auth: authReducer,
+    github: githubReducer,
+  },
   middleware: [thunkMiddleware as ThunkMiddleware],
 });
 
