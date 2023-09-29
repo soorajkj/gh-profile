@@ -22,7 +22,7 @@ export default function RepoLang(props: RepoLangProps) {
       {...rest}
     >
       <span
-        style={{ backgroundColor: langColors[language] || undefined }}
+        style={{ backgroundColor: langColors[language] || "white" }}
         className="h-2.5 w-2.5 rounded-full"
       />
       <p>{language}</p>
@@ -31,6 +31,7 @@ export default function RepoLang(props: RepoLangProps) {
 }
 
 const RepoLangStyles = cva([
+  "ghp-repo-lang",
   "flex",
   "items-center",
   "space-x-1.5",

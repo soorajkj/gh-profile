@@ -6,8 +6,8 @@ import { Icon } from "@/components/core/Icon";
 export default function UserProfile() {
   return (
     <div className="ghp-user-profile">
-      <div className="mb-4 flex space-x-6 md:flex-col md:space-x-0">
-        <Avatar.AvatarRoot className="h-20 w-20 md:mx-auto md:h-72 md:w-72">
+      <div className="mb-4 flex space-x-4 md:flex-col md:space-x-0">
+        <Avatar.AvatarRoot className="h-16 w-16 md:mx-auto md:h-72 md:w-72">
           <Avatar.AvatarImage src="" alt=""></Avatar.AvatarImage>
           <Avatar.AvatarFallback></Avatar.AvatarFallback>
         </Avatar.AvatarRoot>
