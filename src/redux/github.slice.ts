@@ -9,19 +9,25 @@ const github = axios.create({
 
 const initialState: {
   loggedUser: GitHubUser | null;
+  loggedUserRepos: [];
   loading: boolean;
   error: boolean;
 } = {
   loggedUser: null,
+  loggedUserRepos: [],
   loading: false,
   error: true,
 };
 
 export const getLoggedUser = createAsyncThunk(
   "github/getLoggedUser",
-  async (user: string) => {
-    const { data } = await github.get(`/users/${user}`);
-    return data;
+  async (userName: string) => {
+    const [user, repos] = await Promise.all([
+      github.get(`/users/${userName}`),
+      github.get(`/users/${userName}/repos`),
+    ]);
+
+    return { user: user.data, repos: repos.data };
   }
 );
 
@@ -36,7 +42,8 @@ const githubSlice = createSlice({
       })
       .addCase(getLoggedUser.fulfilled, (state, action) => {
         state.loading = false;
-        state.loggedUser = action.payload;
+        state.loggedUser = action.payload.user;
+        state.loggedUserRepos = action.payload.repos;
       })
       .addCase(getLoggedUser.rejected, (state) => {
         state.loading = false;
