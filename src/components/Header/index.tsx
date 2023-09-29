@@ -5,8 +5,8 @@ import UserMenu from "@/components/UserMenu";
 
 export default function Header() {
   return (
-    <header className="ghp-header bg-color-black">
-      <Wrapper>
+    <header className="ghp-header sticky top-0 z-50 w-full bg-color-black">
+      <Wrapper variant="big">
         <div className="flex items-center justify-between py-4">
           <Link to="/" className="flex select-none items-center outline-none">
             <Icon icon="github" className="h-10 w-10" />

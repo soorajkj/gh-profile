@@ -12,19 +12,23 @@ interface WrapperProps
 }
 
 export default function Wrapper(props: WrapperProps) {
-  const { children, className, ...rest } = props;
+  const { children, variant = "small", className, ...rest } = props;
 
   return (
-    <div className={mergeNames(WrapperStyles({ className }))} {...rest}>
+    <div
+      className={mergeNames(WrapperStyles({ variant, className }))}
+      {...rest}
+    >
       {children}
     </div>
   );
 }
 
-const WrapperStyles = cva([
-  "ghp-wrapper",
-  "mx-auto",
-  "w-full",
-  "!max-w-screen-2xl",
-  "px-4",
-]);
+const WrapperStyles = cva(["ghp-wrapper", "mx-auto", "w-full", "", "px-4"], {
+  variants: {
+    variant: {
+      small: "!max-w-screen-xl",
+      big: "!max-w-screen-2xl",
+    },
+  },
+});
