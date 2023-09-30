@@ -11,7 +11,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="ghp-dashboard">
+    <div className="ghp-page ghp-page__dashboard">
       <Wrapper>
         <form onSubmit={(e) => handleSubmit(e)} className="my-4 flex space-x-2">
           <Input
