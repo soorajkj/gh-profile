@@ -66,9 +66,11 @@ const ButtonStyles = cva(
         default: [
           "ghp-button--default",
           "bg-color-gray-700",
-          "text-color-gray-300",
+          "text-color-gray-200",
+          "border-color-gray-600",
           "hover:bg-color-gray-600",
-          "hover:text-color-gray-200",
+          "hover:text-color-gray-100",
+          "hover:border-color-gray-400",
         ],
         primary: [
           "ghp-button--primary",

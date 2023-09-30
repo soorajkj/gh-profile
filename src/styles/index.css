@@ -17,6 +17,13 @@
     font-normal
     leading-normal
     text-color-gray-400
-    antialiased;
+    antialiased
+    scrollbar
+    scrollbar-track-color-gray-800
+    scrollbar-thumb-color-gray-700
+    scrollbar-track-rounded
+    scrollbar-thumb-rounded
+    scrollbar-w-3
+    hover:scrollbar-thumb-color-gray-700;
   }
 }

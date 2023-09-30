@@ -6,8 +6,8 @@ import { Icon } from "@/components/core/Icon";
 export default function UserProfile() {
   return (
     <div className="ghp-user-profile">
-      <div className="mb-4 flex space-x-6 md:flex-col md:space-x-0">
-        <Avatar.AvatarRoot className="h-20 w-20 md:mx-auto md:h-72 md:w-72">
+      <div className="mb-4 flex space-x-4 md:flex-col md:space-x-0">
+        <Avatar.AvatarRoot className="h-16 w-16 md:mx-auto md:h-72 md:w-72">
           <Avatar.AvatarImage src="" alt=""></Avatar.AvatarImage>
           <Avatar.AvatarFallback></Avatar.AvatarFallback>
         </Avatar.AvatarRoot>
@@ -22,20 +22,18 @@ export default function UserProfile() {
           something new and grow as a developer.
         </p>
         <Button asChild={true}>
-          <Link to="" target="_blank" rel="noopener noreferrer">
-            Github Profile
-          </Link>
+          <Link to="">Github Profile</Link>
         </Button>
         <div className="flex items-center gap-2">
           <Icon icon="peoples" className="h-4 w-4"></Icon>
           <Link to="" className="hover:text-color-blue-500">
-            <span className="text-color-gray-200">7</span> followers
+            <span className="font-medium text-color-gray-200">7</span> followers
           </Link>
           <span className="inline-flex items-center justify-center">
             <Icon icon="dot" className="h-2 w-2"></Icon>
           </span>
           <Link to="" className="hover:text-color-blue-500">
-            <span className="text-color-gray-200">9</span> following
+            <span className="font-medium text-color-gray-200">9</span> following
           </Link>
         </div>
         <ul className="flex flex-col space-y-1">
