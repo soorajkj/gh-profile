@@ -41,7 +41,7 @@ const DropdownLabel = React.forwardRef<
     <DropdownPrimitive.Label
       ref={ref}
       className={mergeNames(
-        ["py-2", "px-2", "pr-4", "text-color-gray-100"],
+        ["ghp-dropdown__label", "py-2", "px-2", "pr-4", "text-color-gray-100"],
         inset && "pl-8",
         className
       )}

@@ -21,6 +21,7 @@ Input.displayName = "Input";
 export { Input };
 
 const InputStyles = cva([
+  "ghp-input",
   "border-color-gray-700",
   "bg-color-transparent",
   "text-color-gray-200",
