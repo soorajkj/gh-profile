@@ -70,30 +70,6 @@ export default function UserMenu() {
             </Link>
           </Dropdown.DropdownItem>
           <Dropdown.DropdownSeparator />
-          <Dropdown.DropdownSub>
-            <Dropdown.DropdownSubTrigger>
-              <div className="flex items-center space-x-2.5">
-                <Icon icon="brush" className="h-3.5 w-3.5" />
-                <span>Appreance</span>
-              </div>
-            </Dropdown.DropdownSubTrigger>
-            <Dropdown.DropdownPortal>
-              <Dropdown.DropdownSubContent>
-                <Dropdown.DropdownRadioGroup value={"system"}>
-                  <Dropdown.DropdownRadioItem value="system">
-                    System
-                  </Dropdown.DropdownRadioItem>
-                  <Dropdown.DropdownRadioItem value="light">
-                    Light
-                  </Dropdown.DropdownRadioItem>
-                  <Dropdown.DropdownRadioItem value="dark">
-                    Dark
-                  </Dropdown.DropdownRadioItem>
-                </Dropdown.DropdownRadioGroup>
-              </Dropdown.DropdownSubContent>
-            </Dropdown.DropdownPortal>
-          </Dropdown.DropdownSub>
-          <Dropdown.DropdownSeparator />
           <Dropdown.DropdownItem asChild onClick={() => dispatch(logout())}>
             <div className="flex items-center space-x-2.5">
               <Icon icon="logout" className="h-3.5 w-3.5" />

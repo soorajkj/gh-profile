@@ -58,6 +58,7 @@ AvatarImage.displayName = AvatarPrimitive.Image.displayName;
 export { AvatarRoot, AvatarFallback, AvatarImage };
 
 const AvatarRootStyles = cva([
+  "ghp-avatar",
   "relative",
   "flex",
   "h-9",
@@ -68,6 +69,7 @@ const AvatarRootStyles = cva([
 ]);
 
 const AvatarFallbackStyles = cva([
+  "ghp-avatar__fallback",
   "bg-color-gray-700",
   "text-color-gray-200",
   "flex",
@@ -79,6 +81,7 @@ const AvatarFallbackStyles = cva([
 ]);
 
 const AvatarImageStyles = cva([
+  "ghp-avatar__image",
   "pointer-events-none",
   "aspect-square",
   "h-full",
