@@ -1,30 +1,22 @@
 import { useState } from "react";
-import { Button } from "@/components/core/Button";
-import { Input } from "@/components/core/Input";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
+import { fetchUsers } from "@/redux/github.slice";
 import Wrapper from "@/components/core/Wrapper";
 
 export default function Dashboard() {
-  const [searchUser, setSearchUser] = useState("");
+  const [searchUser, _setSearchUser] = useState("");
+  const dispatch = useAppDispatch();
+  const { users: _users } = useAppSelector((state) => state.github);
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  const _handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const param = searchUser.trim();
+    if (param.length) dispatch(fetchUsers(param));
   };
 
   return (
     <div className="ghp-page ghp-page__dashboard">
-      <Wrapper>
-        <form onSubmit={(e) => handleSubmit(e)} className="my-4 flex space-x-2">
-          <Input
-            type="text"
-            value={searchUser}
-            onChange={(e) => setSearchUser(e.target.value)}
-            placeholder="Search users..."
-          ></Input>
-          <Button type="submit" variant="primary">
-            Search
-          </Button>
-        </form>
-      </Wrapper>
+      <Wrapper>{}</Wrapper>
     </div>
   );
 }

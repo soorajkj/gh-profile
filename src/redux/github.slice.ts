@@ -8,16 +8,27 @@ const github = axios.create({
 });
 
 const initialState: {
+  users: GitHubUser[];
   loggedUser: GitHubUser | null;
   loggedUserRepos: [];
   loading: boolean;
   error: boolean;
 } = {
+  users: [],
   loggedUser: null,
   loggedUserRepos: [],
   loading: false,
   error: true,
 };
+
+export const fetchUsers = createAsyncThunk(
+  "github/fetchUsers",
+  async (userName: string) => {
+    const params = new URLSearchParams({ q: userName });
+    const { data } = await github.get(`/search/users?${params}`);
+    return data.items;
+  }
+);
 
 export const getLoggedUser = createAsyncThunk(
   "github/getLoggedUser",
@@ -26,7 +37,6 @@ export const getLoggedUser = createAsyncThunk(
       github.get(`/users/${userName}`),
       github.get(`/users/${userName}/repos`),
     ]);
-
     return { user: user.data, repos: repos.data };
   }
 );
@@ -46,6 +56,19 @@ const githubSlice = createSlice({
         state.loggedUserRepos = action.payload.repos;
       })
       .addCase(getLoggedUser.rejected, (state) => {
+        state.loading = false;
+        state.error = true;
+      });
+
+    builder
+      .addCase(fetchUsers.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchUsers.fulfilled, (state, action) => {
+        state.loading = false;
+        state.users = action.payload;
+      })
+      .addCase(fetchUsers.rejected, (state) => {
         state.loading = false;
         state.error = true;
       });
