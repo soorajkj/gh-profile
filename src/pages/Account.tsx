@@ -1,5 +1,6 @@
 import Wrapper from "@/components/core/Wrapper";
 import Contributions from "@/components/Contributions";
+import SearchRepo from "@/components/SearchRepo";
 import UserProfile from "@/components/UserProfile";
 import UserRepos from "@/components/UserRepos";
 
@@ -12,6 +13,7 @@ export default function Account() {
             <UserProfile />
           </div>
           <div className="flex-1">
+            <SearchRepo />
             <UserRepos />
             <Contributions />
           </div>
