@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useAppDispatch, useAppSelector } from "@/redux/store";
+import { useAppDispatch } from "@/redux/store";
 import { logout } from "@/redux/auth.slice";
 import * as Avatar from "@/components/core/Avatar";
 import * as Dropdown from "@/components/core/Dropdown";
@@ -8,39 +8,26 @@ import { Toggle } from "@/components/core/Toggle";
 
 export default function UserMenu() {
   const dispatch = useAppDispatch();
-  const { user } = useAppSelector((state) => state.auth);
 
   return (
     <Dropdown.DropdownRoot>
       <Dropdown.DropdownTrigger asChild>
         <Toggle asChild={false}>
           <Avatar.AvatarRoot>
-            <Avatar.AvatarFallback>
-              {user?.user_metadata.name[0]}
-            </Avatar.AvatarFallback>
-            <Avatar.AvatarImage
-              src={user?.user_metadata.avatar_url}
-              alt={user?.email}
-            ></Avatar.AvatarImage>
+            <Avatar.AvatarFallback>S</Avatar.AvatarFallback>
+            <Avatar.AvatarImage src="" alt=""></Avatar.AvatarImage>
           </Avatar.AvatarRoot>
         </Toggle>
       </Dropdown.DropdownTrigger>
       <Dropdown.DropdownContent align="end" sideOffset={24}>
         <Dropdown.DropdownLabel className="flex items-center space-x-2.5">
           <Avatar.AvatarRoot>
-            <Avatar.AvatarImage
-              src={user?.user_metadata.avatar_url}
-              alt={user?.email}
-            ></Avatar.AvatarImage>
-            <Avatar.AvatarFallback>
-              {user?.user_metadata.name[0]}
-            </Avatar.AvatarFallback>
+            <Avatar.AvatarFallback>S</Avatar.AvatarFallback>
+            <Avatar.AvatarImage src="" alt=""></Avatar.AvatarImage>
           </Avatar.AvatarRoot>
           <div className="flex flex-col justify-start">
-            <h5 className="text-color-secondary">
-              {user?.user_metadata.user_name}
-            </h5>
-            <p className="text-xs">{user?.email} </p>
+            <h5 className="text-color-secondary">soorajkj</h5>
+            <p className="text-xs">soorajkj46@gmail.com</p>
           </div>
         </Dropdown.DropdownLabel>
         <Dropdown.DropdownSeparator />
