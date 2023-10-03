@@ -9,14 +9,16 @@ const github = axios.create({
 
 const initialState: {
   users: GitHubUser[];
-  loggedUser: GitHubUser | null;
-  loggedUserRepos: [];
+  userData: GitHubUser | null;
+  userRepos: [];
+  userFollowers: [];
   loading: boolean;
   error: boolean;
 } = {
   users: [],
-  loggedUser: null,
-  loggedUserRepos: [],
+  userData: null,
+  userRepos: [],
+  userFollowers: [],
   loading: false,
   error: true,
 };
@@ -30,14 +32,19 @@ export const fetchUsers = createAsyncThunk(
   }
 );
 
-export const getLoggedUser = createAsyncThunk(
-  "github/getLoggedUser",
+export const fetchUserData = createAsyncThunk(
+  "github/fetchUserData",
   async (userName: string) => {
-    const [user, repos] = await Promise.all([
+    const [userData, userRepos, userFollowers] = await Promise.all([
       github.get(`/users/${userName}`),
       github.get(`/users/${userName}/repos`),
+      github.get(`/users/${userName}/followers`),
     ]);
-    return { user: user.data, repos: repos.data };
+    return {
+      userData: userData.data,
+      userRepos: userRepos.data,
+      userFollowers: userFollowers.data,
+    };
   }
 );
 
@@ -47,15 +54,16 @@ const githubSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(getLoggedUser.pending, (state) => {
+      .addCase(fetchUserData.pending, (state) => {
         state.loading = true;
       })
-      .addCase(getLoggedUser.fulfilled, (state, action) => {
+      .addCase(fetchUserData.fulfilled, (state, action) => {
         state.loading = false;
-        state.loggedUser = action.payload.user;
-        state.loggedUserRepos = action.payload.repos;
+        state.userData = action.payload.userData;
+        state.userRepos = action.payload.userRepos;
+        state.userFollowers = action.payload.userFollowers;
       })
-      .addCase(getLoggedUser.rejected, (state) => {
+      .addCase(fetchUserData.rejected, (state) => {
         state.loading = false;
         state.error = true;
       });
