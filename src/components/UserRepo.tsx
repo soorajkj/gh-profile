@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { Icon } from "@/components/core/Icon";
 import RepoLang from "@/components/RepoLang";
 
 export default function UserRepo() {
@@ -21,7 +22,17 @@ export default function UserRepo() {
         Atomic design system starter folder structure for every projects (no
         framework).
       </p>
-      <RepoLang language="TypeScript" />
+      <div className="flex flex-wrap items-center space-x-4 text-xs">
+        <RepoLang language="TypeScript" />
+        <div className="flex items-center space-x-1">
+          <Icon icon="star" className="h-3.5 w-3.5"></Icon>
+          <span>67</span>
+        </div>
+        <div className="flex items-center space-x-1">
+          <Icon icon="fork" className="h-3.5 w-3.5"></Icon>
+          <span>32</span>
+        </div>
+      </div>
     </div>
   );
 }

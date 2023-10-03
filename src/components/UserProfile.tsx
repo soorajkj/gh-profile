@@ -50,6 +50,10 @@ export default function UserProfile() {
             <span className="text-color-gray-200">soorajkj46@gmail.com</span>
           </li>
           <li className="flex items-center space-x-2">
+            <Icon icon="link" className="h-4 w-4"></Icon>
+            <span className="text-color-gray-200">www.sooraj.dev</span>
+          </li>
+          <li className="flex items-center space-x-2">
             <Icon icon="twitter" className="h-4 w-4"></Icon>
             <span className="text-color-gray-200">@soorajkj7</span>
           </li>
