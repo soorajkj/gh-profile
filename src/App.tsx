@@ -1,8 +1,8 @@
 import { Route, Routes } from "react-router-dom";
 import useSubscription from "@/hooks/useSubscription";
-import Account from "@/pages/Account";
 import Dashboard from "@/pages/Dashboard";
 import Login from "@/pages/Login";
+import User from "@/pages/User";
 import Layout from "@/components/Layout";
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
       <Route path="login" element={<Login />} />
       <Route path="/" element={<Layout />}>
         <Route index element={<Dashboard />} />
-        <Route path="account" element={<Account />} />
+        <Route path=":id" element={<User />} />
       </Route>
     </Routes>
   );

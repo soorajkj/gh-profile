@@ -1,6 +1,7 @@
 import { ReactComponent as Account } from "@/assets/icons/account.svg";
 import { ReactComponent as Check } from "@/assets/icons/check.svg";
 import { ReactComponent as Chevronr } from "@/assets/icons/chevron-right.svg";
+import { ReactComponent as Command } from "@/assets/icons/command.svg";
 import { ReactComponent as Dot } from "@/assets/icons/dot.svg";
 import { ReactComponent as Fork } from "@/assets/icons/fork.svg";
 import { ReactComponent as github } from "@/assets/icons/github.svg";
@@ -21,6 +22,7 @@ export const icons = {
   account: Account,
   check: Check,
   chevronr: Chevronr,
+  command: Command,
   dot: Dot,
   fork: Fork,
   github: github,

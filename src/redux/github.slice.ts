@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import { GitHubUser } from "@/types/github";
+import { GithubUser, GithubUserArr } from "@/types/github";
 
 const github = axios.create({
   baseURL: import.meta.env.VITE_GITHUB_URL!,
@@ -8,8 +8,8 @@ const github = axios.create({
 });
 
 const initialState: {
-  users: GitHubUser[];
-  userData: GitHubUser | null;
+  users: GithubUserArr[];
+  userData: GithubUser | null;
   userRepos: [];
   userFollowers: [];
   loading: boolean;

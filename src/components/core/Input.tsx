@@ -27,7 +27,7 @@ const InputStyles = cva([
   "text-color-gray-200",
   "ring-offset-color-transparent",
   "file:bg-transparent",
-  "placeholder:text-color-gray-500",
+  "placeholder:text-color-gray-600",
   "focus-visible:ring-0",
   "flex",
   "w-full",
