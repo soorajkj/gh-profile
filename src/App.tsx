@@ -1,19 +1,12 @@
 import { Route, Routes } from "react-router-dom";
-import useSubscription from "@/hooks/useSubscription";
-import Dashboard from "@/pages/Dashboard";
-import Login from "@/pages/Login";
-import User from "@/pages/User";
-import Layout from "@/components/Layout";
+import Dashboard from "@/pages/dashboard";
+import Layout from "./components/layout";
 
 export default function App() {
-  const _supscription = useSubscription();
-
   return (
     <Routes>
-      <Route path="login" element={<Login />} />
       <Route path="/" element={<Layout />}>
         <Route index element={<Dashboard />} />
-        <Route path=":id" element={<User />} />
       </Route>
     </Routes>
   );

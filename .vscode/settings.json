@@ -1,10 +1,11 @@
 {
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.prettierPath": "./node_modules/prettier",
   "editor.formatOnSave": true,
   "editor.formatOnPaste": false,
-  "css.validate": false,
+  "css.validate": true,
   "scss.validate": false,
-  "editor.colorDecorators": false,
+  "editor.colorDecorators": true,
   "tailwindCSS.experimental.classRegex": [
     ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"]
   ]

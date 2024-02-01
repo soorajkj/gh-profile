@@ -1,19 +1,21 @@
 import * as React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { cva, VariantProps } from "class-variance-authority";
-import { mergeNames } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
 const AvatarRoot = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> &
-    VariantProps<typeof AvatarRootStyles>
+    VariantProps<typeof AvatarRootStyles> & {
+      square?: boolean;
+    }
 >((props, ref) => {
-  const { className, ...rest } = props;
+  const { className, square = false, ...rest } = props;
 
   return (
     <AvatarPrimitive.Root
       ref={ref}
-      className={mergeNames(AvatarRootStyles({ className }))}
+      className={cn(AvatarRootStyles({ square, className }))}
       {...rest}
     />
   );
@@ -29,7 +31,7 @@ const AvatarFallback = React.forwardRef<
   return (
     <AvatarPrimitive.Fallback
       ref={ref}
-      className={mergeNames(AvatarFallbackStyles({ className }))}
+      className={cn(AvatarFallbackStyles({ className }))}
       {...rest}
     />
   );
@@ -45,7 +47,8 @@ const AvatarImage = React.forwardRef<
   return (
     <AvatarPrimitive.Image
       ref={ref}
-      className={mergeNames(AvatarImageStyles({ className }))}
+      src={"public/octacat.png"}
+      className={cn(AvatarImageStyles({ className }))}
       {...rest}
     />
   );
@@ -55,23 +58,34 @@ AvatarRoot.displayName = AvatarPrimitive.Root.displayName;
 AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
 AvatarImage.displayName = AvatarPrimitive.Image.displayName;
 
-export { AvatarRoot, AvatarFallback, AvatarImage };
+const Avatar = { AvatarRoot, AvatarFallback, AvatarImage };
 
-const AvatarRootStyles = cva([
-  "ghp-avatar",
-  "relative",
-  "flex",
-  "h-9",
-  "w-9",
-  "shrink-0",
-  "overflow-hidden",
-  "rounded-full",
-]);
+export default Avatar;
+
+const AvatarRootStyles = cva(
+  [
+    "ghp-avatar",
+    "relative",
+    "flex",
+    "h-9",
+    "w-9",
+    "shrink-0",
+    "overflow-hidden",
+    "rounded-full",
+  ],
+  {
+    variants: {
+      square: {
+        true: "rounded",
+      },
+    },
+  }
+);
 
 const AvatarFallbackStyles = cva([
   "ghp-avatar__fallback",
-  "bg-color-gray-700",
-  "text-color-gray-200",
+  "bg-color",
+  "text-color",
   "flex",
   "h-full",
   "w-full",

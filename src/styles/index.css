@@ -4,6 +4,34 @@
 
 @layer base {
   :root {
+    --color-default-background: hsl(216deg 27.78% 7.06%);
+    --color-default-foreground: hsl(207.69deg 35.14% 92.75%);
+
+    --color-header-background: hsl(217.5deg 80% 1.96%);
+    --color-header-foreground: hsl(0deg 0% 100% / 70%);
+    --color-header-logo: hsl(210deg 66.67% 96.47%);
+
+    --color-button-default-background: hsl(215deg 15% 15%);
+    --color-button-default-foreground: hsl(210deg 17% 82%);
+    --color-button-default-border: hsla(210, 67%, 96%, 0.1);
+    --color-button-default-background-hover: hsl(212deg 12% 21%);
+    --color-button-default-border-hover: hsl(212deg 9% 58%);
+
+    --color-button-primary-background: hsl(132deg 59% 33%);
+    --color-button-primary-foreground: hsl(0deg 0% 100%);
+    --color-button-primary-border: hsla(210, 67%, 96%, 0.1);
+    --color-button-primary-background-hover: hsl(131deg 55% 40%);
+    --color-button-primary-border-hover: hsla(210, 67%, 96%, 0.1);
+
+    --color-button-destruct-background: hsl(215deg 15% 15%);
+    --color-button-destruct-foreground: hsl(3deg 93% 63%);
+    --color-button-destruct-border: hsla(210, 67%, 96%, 0.1);
+    --color-button-destruct-background-hover: hsl(1deg 69% 53%);
+    --color-button-destruct-foreground-hover: hsl(0deg 0% 100%);
+    --color-button-destruct-border-hover: hsl(3deg 93% 63%);
+
+    --color-button-invisible-foreground: hsl(215deg 93% 58%);
+    --color-button-invisible-background-hover: hsla(212, 14%, 73%, 0.12);
   }
 
   html {
@@ -11,19 +39,77 @@
   }
 
   body {
-    @apply bg-color-gray-900
-    font-family-inter
-    text-sm
+    @apply font-sans
+    text-base
     font-normal
     leading-normal
-    text-color-gray-400
-    antialiased
-    scrollbar
-    scrollbar-track-color-gray-800
-    scrollbar-thumb-color-gray-700
-    scrollbar-track-rounded
-    scrollbar-thumb-rounded
-    scrollbar-w-3
-    hover:scrollbar-thumb-color-gray-700;
+    antialiased;
+    background-color: var(--color-default-background);
+    color: var(--color-default-foreground);
+  }
+}
+
+@layer components {
+  .ghp-button {
+    --tw-ring-offset-color: hsl(215deg 93% 58%);
+  }
+  .ghp-button--default {
+    background-color: var(--color-button-default-background);
+    color: var(--color-button-default-foreground);
+    border-color: var(--color-button-default-border);
+  }
+  .ghp-button--default:hover {
+    ackground-color: var(--color-button-default-background-hover);
+    border-color: var(--color-button-default-border-hover);
+  }
+  .ghp-button--primary {
+    background-color: var(--color-button-primary-background);
+    color: var(--color-button-primary-foreground);
+    border-color: var(--color-button-primary-border);
+  }
+  .ghp-button--primary:hover {
+    background-color: var(--color-button-primary-background-hover);
+    border-color: var(--color-button-primary-border-hover);
+  }
+  .ghp-button--destruct {
+    background-color: var(--color-button-destruct-background);
+    color: var(--color-button-destruct-foreground);
+    border-color: var(--color-button-destruct-border);
+  }
+  .ghp-button--destruct:hover {
+    background-color: var(--color-button-destruct-background-hover);
+    color: var(--color-button-destruct-foreground-hover);
+    border-color: var(--color-button-destruct-border-hover);
+  }
+  .ghp-button--invisible {
+    color: var(--color-button-invisible-foreground);
+    border-color: transparent;
+  }
+  .ghp-button--invisible:hover {
+    background-color: var(--color-button-invisible-background-hover);
+  }
+
+  .ghp-header {
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+    background-color: var(--color-header-background);
+    color: var(--color-header-foreground);
+  }
+  .ghp-header__content {
+    display: flex;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .ghp-header__logo {
+    font-size: 16px;
+    line-height: 1.5;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    color: var(--color-header-logo);
   }
 }
