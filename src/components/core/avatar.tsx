@@ -47,7 +47,7 @@ const AvatarImage = React.forwardRef<
   return (
     <AvatarPrimitive.Image
       ref={ref}
-      src={"public/octacat.png"}
+      src={"octacat.png"}
       className={cn(AvatarImageStyles({ className }))}
       {...rest}
     />
